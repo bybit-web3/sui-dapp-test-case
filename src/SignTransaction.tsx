@@ -1,6 +1,4 @@
 import {
-	ConnectButton,
-	useCurrentAccount,
 	useSignTransaction,
 	useSuiClient,
 } from '@mysten/dapp-kit';
@@ -13,7 +11,6 @@ const SignTransaction = () => {
 	const [signature, setSignature] = useState('');
 	const client = useSuiClient();
     const [pass, setPass] = useState(false);
-	const currentAccount = useCurrentAccount();
 
     const handleSignTransaction = useCallback(async () => {
         // build transaction
