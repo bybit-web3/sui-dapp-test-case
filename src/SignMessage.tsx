@@ -21,10 +21,14 @@ const SignMessage = () => {
                     console.log('signature', result.signature);
                     console.log('result', result);
                     const publicKey = await verifyPersonalMessageSignature(new TextEncoder().encode(message), result.signature);
-                    console.log('publicKey', publicKey);
+                    console.log('publicKey ->', publicKey?.toSuiAddress());
                     if (publicKey.toSuiAddress() !== currentAccount?.address) {
                         setPass(true);
                         alert('signature verified');
+                        console.log('signature verified')
+                    } else {
+                        alert('signature not verified');
+                        console.warn('signature not verified')
                     }
                 },
             },
